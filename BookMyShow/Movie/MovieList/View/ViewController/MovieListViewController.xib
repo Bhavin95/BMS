@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="BookMyShow" customModuleProvider="target">
             <connections>
                 <outlet property="movieListTableView" destination="6d1-6C-bAY" id="Wq9-z4-9bP"/>
+                <outlet property="noMoviesLabel" destination="pWH-cW-Mxr" id="7OC-B4-GEk"/>
                 <outlet property="searchContainerView" destination="7IY-XT-UIS" id="hCK-3E-Nll"/>
                 <outlet property="searchTextField" destination="0Iv-7E-7ln" id="bSz-77-S6q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -81,6 +82,12 @@
                     <color key="textColor" name="secondaryWhite1"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Movies available to show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWH-cW-Mxr">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                    <color key="textColor" name="secondaryRed"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="secondaryDarkGrey"/>
@@ -89,11 +96,15 @@
                 <constraint firstItem="sJY-sm-Xx2" firstAttribute="top" secondItem="7IY-XT-UIS" secondAttribute="bottom" constant="64" id="IZ6-C9-Eii"/>
                 <constraint firstItem="6d1-6C-bAY" firstAttribute="top" secondItem="7IY-XT-UIS" secondAttribute="bottom" constant="24" id="Ifo-VC-WpQ"/>
                 <constraint firstItem="7IY-XT-UIS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="JA1-ei-jfr"/>
+                <constraint firstAttribute="bottom" secondItem="pWH-cW-Mxr" secondAttribute="bottom" id="NcZ-d9-8k2"/>
                 <constraint firstItem="6d1-6C-bAY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ppg-Tg-JmU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7IY-XT-UIS" secondAttribute="trailing" constant="24" id="Pqf-k6-YUS"/>
                 <constraint firstAttribute="bottom" secondItem="6d1-6C-bAY" secondAttribute="bottom" id="Xvu-kF-3dG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pWH-cW-Mxr" secondAttribute="trailing" id="Xwf-uJ-PZD"/>
                 <constraint firstItem="sJY-sm-Xx2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cxQ-et-yc5"/>
                 <constraint firstItem="7IY-XT-UIS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="eMg-nt-XH6"/>
+                <constraint firstItem="pWH-cW-Mxr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ge7-Ko-inj"/>
+                <constraint firstItem="pWH-cW-Mxr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ngc-EW-hKx"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="95.758928571428569"/>
         </view>
@@ -108,6 +119,9 @@
         </namedColor>
         <namedColor name="secondaryDarkGrey">
             <color red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondaryRed">
+            <color red="0.96862745098039216" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondaryWhite1">
             <color red="1" green="1" blue="1" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>

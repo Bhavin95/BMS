@@ -9,16 +9,18 @@ import UIKit
 
 class MovieListViewController: UIViewController {
 
-    @IBOutlet weak private var searchContainerView: UIView!
-    @IBOutlet weak private var movieListTableView: UITableView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet private weak var searchContainerView: UIView!
+    @IBOutlet private weak var movieListTableView: UITableView!
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var noMoviesLabel: UILabel!
     
     private lazy var movieListDataSource = MovieListDataSource()
     private var movieListServiceViewModel = MovieServiceViewModel()
+    private var movieListResults = [Results]()
+    private var movieListFilteredResults = [Results]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initialSetup()
     }
     
@@ -43,19 +45,31 @@ class MovieListViewController: UIViewController {
     
     private func nowPlayingMovie() {
         
+        UIManager.showSpinner(onView: AppConstants.appDelegate.window?.rootViewController?.view ?? UIView())
+
         let request = MovieListRequestModel()
-        
         movieListServiceViewModel.nowPlaying(request) { [weak self] (data, errorMessage, isSuccess)  in
-            //UIManager.removeSpinner()
+            UIManager.removeSpinner()
             guard let self = self else {return}
             if isSuccess ?? false {
-                if let movieListModel = data {
-                    self.movieListDataSource.movieList = movieListModel.results ?? [Results]()
-                    self.movieListDataSource.buildRows()
+                if let movieListData = data?.results {
+                    self.movieListResults = movieListData
+                    self.movieListFilteredResults = movieListData
+                    self.reloadScreen()
                 }
             } else {
-                //self.showToast(message: errorMessage ?? "")
+                UIManager.showAlert(msg: AppConstants.somethingWentWrong, completionBlock: nil)
             }
+        }
+    }
+    
+    private func reloadScreen() {
+        self.movieListDataSource.movieList = self.movieListFilteredResults
+        self.movieListDataSource.buildRows()
+        if movieListFilteredResults.count <= 0 {
+            noMoviesLabel.isHidden = false
+        } else {
+            noMoviesLabel.isHidden = true
         }
     }
 }
@@ -75,5 +89,56 @@ extension MovieListViewController: MovieListDelegate {
 }
 
 extension MovieListViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text, let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
+            if !updatedText.isEmpty {
+                /* (\b pattern): checks if the keyword occurs at a word boundary */
+                let pattern = "\\b" + NSRegularExpression.escapedPattern(for: updatedText)
+                movieListFilteredResults = movieListResults.filter { $0.originalTitle!.range(of: pattern, options: [.regularExpression, .caseInsensitive]) != nil
+                }
+            } else {
+                movieListFilteredResults = movieListResults
+            }
+            reloadScreen()
+        }
+        return true
+    }
+
+}
+
+extension StringProtocol where Index == String.Index {
+    func index(of string: Self, options: String.CompareOptions = []) -> Index? {
+        return range(of: string, options: options)?.lowerBound
+    }
+    func endIndex(of string: Self, options: String.CompareOptions = []) -> Index? {
+        return range(of: string, options: options)?.upperBound
+    }
+    func indexes(of string: Self, options: String.CompareOptions = []) -> [Index] {
+        var result: [Index] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...].range(of: string, options: options) {
+                result.append(range.lowerBound)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
+    func ranges(of string: Self, options: String.CompareOptions = []) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...].range(of: string, options: options) {
+                result.append(range)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
 }

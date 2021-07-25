@@ -14,6 +14,7 @@
 		F43818BF269C990000203365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43818BD269C990000203365 /* LaunchScreen.storyboard */; };
 		F43818CA269C990100203365 /* BookMyShowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43818C9269C990100203365 /* BookMyShowTests.swift */; };
 		F43818D5269C990100203365 /* BookMyShowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43818D4269C990100203365 /* BookMyShowUITests.swift */; };
+		F44BFFBA26AD5E6F003D3CA1 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44BFFB926AD5E6F003D3CA1 /* UIManager.swift */; };
 		F45ACA6126A2C5EA00920459 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA6026A2C5EA00920459 /* ServiceManager.swift */; };
 		F45ACA6926A2C6A900920459 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA6826A2C6A900920459 /* Reachability.swift */; };
 		F45ACA6E26A2C71B00920459 /* ServiceManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA6D26A2C71B00920459 /* ServiceManagerExtension.swift */; };
@@ -65,6 +66,7 @@
 		F43818D0269C990100203365 /* BookMyShowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookMyShowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43818D4269C990100203365 /* BookMyShowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMyShowUITests.swift; sourceTree = "<group>"; };
 		F43818D6269C990100203365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F44BFFB926AD5E6F003D3CA1 /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
 		F45ACA6026A2C5EA00920459 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		F45ACA6826A2C6A900920459 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F45ACA6D26A2C71B00920459 /* ServiceManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerExtension.swift; sourceTree = "<group>"; };
@@ -164,11 +166,18 @@
 			path = BookMyShowUITests;
 			sourceTree = "<group>";
 		};
+		F44BFFBE26AD5F44003D3CA1 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieDetail;
+			sourceTree = "<group>";
+		};
 		F45ACA5826A2C2BA00920459 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
 				F4EAFDE226AA0914007BFFD1 /* MovieList */,
-				F4EAFDE126AA0900007BFFD1 /* MovieDetail */,
+				F44BFFBE26AD5F44003D3CA1 /* MovieDetail */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 				F49BAD2326A31D1300A00556 /* UIViewExtension.swift */,
 				F49BAD3226A9A01700A00556 /* APPConstants.swift */,
 				F4EAFDDC26AA063F007BFFD1 /* UIImageExtension.swift */,
+				F44BFFB926AD5E6F003D3CA1 /* UIManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -248,13 +258,6 @@
 				F43818B8269C98FF00203365 /* Main.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F4EAFDE126AA0900007BFFD1 /* MovieDetail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		F4EAFDE226AA0914007BFFD1 /* MovieList */ = {
@@ -411,6 +414,7 @@
 				F45ACA6E26A2C71B00920459 /* ServiceManagerExtension.swift in Sources */,
 				F45ACA6926A2C6A900920459 /* Reachability.swift in Sources */,
 				F45ACA6126A2C5EA00920459 /* ServiceManager.swift in Sources */,
+				F44BFFBA26AD5E6F003D3CA1 /* UIManager.swift in Sources */,
 				F49BAD3326A9A01700A00556 /* APPConstants.swift in Sources */,
 				F49BAD4F26A9B3C800A00556 /* HomeViewController.swift in Sources */,
 				F49BAD2426A31D1300A00556 /* UIViewExtension.swift in Sources */,
