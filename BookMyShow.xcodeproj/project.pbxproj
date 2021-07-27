@@ -15,6 +15,10 @@
 		F43818CA269C990100203365 /* BookMyShowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43818C9269C990100203365 /* BookMyShowTests.swift */; };
 		F43818D5269C990100203365 /* BookMyShowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43818D4269C990100203365 /* BookMyShowUITests.swift */; };
 		F44BFFBA26AD5E6F003D3CA1 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44BFFB926AD5E6F003D3CA1 /* UIManager.swift */; };
+		F44BFFC326ADB706003D3CA1 /* MovieInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44BFFC226ADB706003D3CA1 /* MovieInfoModel.swift */; };
+		F44BFFCE26ADDDB4003D3CA1 /* MovieDetailServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44BFFCD26ADDDB4003D3CA1 /* MovieDetailServiceViewModel.swift */; };
+		F44BFFD426ADDE08003D3CA1 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44BFFD226ADDE08003D3CA1 /* MovieDetailViewController.swift */; };
+		F44BFFD526ADDE08003D3CA1 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44BFFD326ADDE08003D3CA1 /* MovieDetailViewController.xib */; };
 		F45ACA6126A2C5EA00920459 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA6026A2C5EA00920459 /* ServiceManager.swift */; };
 		F45ACA6926A2C6A900920459 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA6826A2C6A900920459 /* Reachability.swift */; };
 		F45ACA6E26A2C71B00920459 /* ServiceManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA6D26A2C71B00920459 /* ServiceManagerExtension.swift */; };
@@ -22,6 +26,7 @@
 		F45ACA7926A2EC0300920459 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA7726A2EC0300920459 /* MovieListViewController.swift */; };
 		F45ACA7A26A2EC0300920459 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45ACA7826A2EC0300920459 /* MovieListViewController.xib */; };
 		F45ACA8426A2F3DC00920459 /* BMCStyleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45ACA8326A2F3DC00920459 /* BMCStyleColor.swift */; };
+		F462180E26AEA7F300F9E20B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462180D26AEA7F300F9E20B /* CardView.swift */; };
 		F49BAD0E26A2FBE300A00556 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BAD0D26A2FBE300A00556 /* CellProtocol.swift */; };
 		F49BAD1426A2FC4300A00556 /* MovieListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BAD1226A2FC4300A00556 /* MovieListTableCell.swift */; };
 		F49BAD1526A2FC4300A00556 /* MovieListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49BAD1326A2FC4300A00556 /* MovieListTableCell.xib */; };
@@ -67,6 +72,10 @@
 		F43818D4269C990100203365 /* BookMyShowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMyShowUITests.swift; sourceTree = "<group>"; };
 		F43818D6269C990100203365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44BFFB926AD5E6F003D3CA1 /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
+		F44BFFC226ADB706003D3CA1 /* MovieInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoModel.swift; sourceTree = "<group>"; };
+		F44BFFCD26ADDDB4003D3CA1 /* MovieDetailServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailServiceViewModel.swift; sourceTree = "<group>"; };
+		F44BFFD226ADDE08003D3CA1 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		F44BFFD326ADDE08003D3CA1 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		F45ACA6026A2C5EA00920459 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		F45ACA6826A2C6A900920459 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F45ACA6D26A2C71B00920459 /* ServiceManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerExtension.swift; sourceTree = "<group>"; };
@@ -74,6 +83,7 @@
 		F45ACA7726A2EC0300920459 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		F45ACA7826A2EC0300920459 /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
 		F45ACA8326A2F3DC00920459 /* BMCStyleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCStyleColor.swift; sourceTree = "<group>"; };
+		F462180D26AEA7F300F9E20B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F49BAD0D26A2FBE300A00556 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		F49BAD1226A2FC4300A00556 /* MovieListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableCell.swift; sourceTree = "<group>"; };
 		F49BAD1326A2FC4300A00556 /* MovieListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListTableCell.xib; sourceTree = "<group>"; };
@@ -169,8 +179,36 @@
 		F44BFFBE26AD5F44003D3CA1 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
+				F44BFFC726ADDD2A003D3CA1 /* Model */,
+				F44BFFC926ADDD56003D3CA1 /* View */,
+				F44BFFC826ADDD4B003D3CA1 /* ViewModel */,
 			);
 			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		F44BFFC726ADDD2A003D3CA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F44BFFC226ADB706003D3CA1 /* MovieInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F44BFFC826ADDD4B003D3CA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F44BFFCD26ADDDB4003D3CA1 /* MovieDetailServiceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F44BFFC926ADDD56003D3CA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F44BFFD226ADDE08003D3CA1 /* MovieDetailViewController.swift */,
+				F44BFFD326ADDE08003D3CA1 /* MovieDetailViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F45ACA5826A2C2BA00920459 /* Movie */ = {
@@ -239,6 +277,7 @@
 				F49BAD3226A9A01700A00556 /* APPConstants.swift */,
 				F4EAFDDC26AA063F007BFFD1 /* UIImageExtension.swift */,
 				F44BFFB926AD5E6F003D3CA1 /* UIManager.swift */,
+				F462180D26AEA7F300F9E20B /* CardView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -373,6 +412,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44BFFD526ADDE08003D3CA1 /* MovieDetailViewController.xib in Resources */,
 				F43818BF269C990000203365 /* LaunchScreen.storyboard in Resources */,
 				F43818BC269C990000203365 /* Assets.xcassets in Resources */,
 				F43818BA269C98FF00203365 /* Main.storyboard in Resources */,
@@ -407,6 +447,7 @@
 				F43818B3269C98FF00203365 /* AppDelegate.swift in Sources */,
 				F4EAFDDD26AA063F007BFFD1 /* UIImageExtension.swift in Sources */,
 				F45ACA8426A2F3DC00920459 /* BMCStyleColor.swift in Sources */,
+				F44BFFD426ADDE08003D3CA1 /* MovieDetailViewController.swift in Sources */,
 				F49BAD2E26A8530F00A00556 /* MovieListServiceViewModel.swift in Sources */,
 				F49BAD2926A46DFA00A00556 /* MovieListModel.swift in Sources */,
 				F43818B5269C98FF00203365 /* SceneDelegate.swift in Sources */,
@@ -419,7 +460,10 @@
 				F49BAD4F26A9B3C800A00556 /* HomeViewController.swift in Sources */,
 				F49BAD2426A31D1300A00556 /* UIViewExtension.swift in Sources */,
 				F45ACA7326A2E9EA00920459 /* UserDefaultManager.swift in Sources */,
+				F44BFFCE26ADDDB4003D3CA1 /* MovieDetailServiceViewModel.swift in Sources */,
 				F49BAD0E26A2FBE300A00556 /* CellProtocol.swift in Sources */,
+				F44BFFC326ADB706003D3CA1 /* MovieInfoModel.swift in Sources */,
+				F462180E26AEA7F300F9E20B /* CardView.swift in Sources */,
 				F49BAD1A26A2FE0C00A00556 /* MovieListDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@ import Foundation
 
 import UIKit
 
-class MovieServiceViewModel: NSObject {
+class MovieListServiceViewModel: NSObject {
     
     weak var serviceManager: ServiceManagerProtocol? = ServiceManager.shared
     
@@ -17,9 +17,9 @@ class MovieServiceViewModel: NSObject {
         self.serviceManager = serviceManager
     }
     
-    func nowPlaying(_ request: MovieListRequestModel, _ completion: @escaping(MovieListResponseModel?, String?, Bool?) -> Void) {
+    func nowPlaying(_ completion: @escaping(MovieListResponseModel?, String?, Bool?) -> Void) {
         
-        serviceManager?.nowPlaying(request) { (response: Result<MovieListResponseModel, NetworkError>) in
+        serviceManager?.nowPlaying() { (response: Result<MovieListResponseModel, NetworkError>) in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let result):

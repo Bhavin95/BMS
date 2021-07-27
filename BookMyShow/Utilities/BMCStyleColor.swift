@@ -9,6 +9,8 @@ import UIKit
 
 public struct APPStyle {
     public struct Color {
+        static let themeCardBackgroundColor = UIColor(named: "themeCardBackgroundColor")!
+        static let themeShadowColor = UIColor(named: "themeShadowColor")!
         public static let disabledGrey = #colorLiteral(red: 0.3647058824, green: 0.3647058824, blue: 0.3647058824, alpha: 1)
         public static let darkGrey = #colorLiteral(red: 0.1176470588, green: 0.1176470588, blue: 0.1176470588, alpha: 1)
         public static let darkestGrey = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.09019607843, alpha: 1)

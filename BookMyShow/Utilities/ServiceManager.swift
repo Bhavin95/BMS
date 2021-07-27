@@ -154,10 +154,14 @@ enum ContentType: String {
     }
 }
 
-struct APIPath {
+public struct APIPath {
     static let movie = "/movie"
+    static let credits = "/credits"
+    static let reviews = "/reviews"
+    static let similar = "/similar"
     
     struct Movie {
         static let nowPlaying = "/movie/now_playing"
+        
     }
 }

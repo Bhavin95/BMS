@@ -10,13 +10,18 @@ import Foundation
 
 protocol ServiceManagerProtocol: class {
     
-    func nowPlaying(_ requestModel: MovieListRequestModel, completion: @escaping(Result<MovieListResponseModel, NetworkError>) -> Void)
-    func getMovieDetail(_ movieId: String, _ requestModel: MovieDetailRequestModel, completion: @escaping(Result<MovieDetailResponseModel, NetworkError>) -> Void)
+    func nowPlaying(completion: @escaping(Result<MovieListResponseModel, NetworkError>) -> Void)
+    func getMovieDetail(_ movieId: String, completion: @escaping(Result<MovieDetailResponseModel, NetworkError>) -> Void)
+    func getMovieReviews(_ urlPath: String, completion: @escaping (Result<MovieReviewModel, NetworkError>) -> Void)
+    func getMovieCredits(_ urlPath: String, completion: @escaping (Result<MovieCreditsModel, NetworkError>) -> Void)
+    func getSimilarMovies(_ urlPath: String, completion: @escaping (Result<MovieListResponseModel, NetworkError>) -> Void)
     }
 
+
 extension ServiceManager: ServiceManagerProtocol {
-    func getMovieDetail(_ movieId: String, _ requestModel: MovieDetailRequestModel, completion: @escaping (Result<MovieDetailResponseModel, NetworkError>) -> Void) {
-        let requestData = urlRequestWithValidation(urlPath: APIPath.Movie.nowPlaying + movieId, httpMethod: .get, headerParams: nil)
+    
+    func getSimilarMovies(_ urlPath: String, completion: @escaping (Result<MovieListResponseModel, NetworkError>) -> Void) {
+        let requestData = urlRequestWithValidation(urlPath: APIPath.movie + urlPath, httpMethod: .get, headerParams: nil)
         
         guard let urlRequest = requestData.0 else {
             completion(Result.failure(requestData.1!))
@@ -25,7 +30,37 @@ extension ServiceManager: ServiceManagerProtocol {
         loadRequest(request: urlRequest, completion: completion)
     }
     
-    func nowPlaying(_ requestModel: MovieListRequestModel, completion: @escaping (Result<MovieListResponseModel, NetworkError>) -> Void) {
+    func getMovieCredits(_ urlPath: String, completion: @escaping (Result<MovieCreditsModel, NetworkError>) -> Void) {
+        let requestData = urlRequestWithValidation(urlPath: APIPath.movie + urlPath, httpMethod: .get, headerParams: nil)
+        
+        guard let urlRequest = requestData.0 else {
+            completion(Result.failure(requestData.1!))
+            return
+        }
+        loadRequest(request: urlRequest, completion: completion)
+    }
+    
+    func getMovieReviews(_ urlPath: String, completion: @escaping (Result<MovieReviewModel, NetworkError>) -> Void) {
+        let requestData = urlRequestWithValidation(urlPath: APIPath.movie + urlPath, httpMethod: .get, headerParams: nil)
+        
+        guard let urlRequest = requestData.0 else {
+            completion(Result.failure(requestData.1!))
+            return
+        }
+        loadRequest(request: urlRequest, completion: completion)
+    }
+    
+    func getMovieDetail(_ movieId: String, completion: @escaping (Result<MovieDetailResponseModel, NetworkError>) -> Void) {
+        let requestData = urlRequestWithValidation(urlPath: APIPath.movie + movieId, httpMethod: .get, headerParams: nil)
+        
+        guard let urlRequest = requestData.0 else {
+            completion(Result.failure(requestData.1!))
+            return
+        }
+        loadRequest(request: urlRequest, completion: completion)
+    }
+    
+    func nowPlaying(completion: @escaping (Result<MovieListResponseModel, NetworkError>) -> Void) {
         let requestData = urlRequestWithValidation(urlPath: APIPath.Movie.nowPlaying, httpMethod: .get, version: .v3, headerParams: nil)
         
         guard let urlRequest = requestData.0 else {

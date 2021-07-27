@@ -15,7 +15,7 @@ class MovieListViewController: UIViewController {
     @IBOutlet private weak var noMoviesLabel: UILabel!
     
     private lazy var movieListDataSource = MovieListDataSource()
-    private var movieListServiceViewModel = MovieServiceViewModel()
+    private var movieListServiceViewModel = MovieListServiceViewModel()
     private var movieListResults = [Results]()
     private var movieListFilteredResults = [Results]()
 
@@ -43,12 +43,20 @@ class MovieListViewController: UIViewController {
         searchTextField.delegate = self
     }
     
+    private func reloadScreen() {
+        self.movieListDataSource.movieList = self.movieListFilteredResults
+        self.movieListDataSource.buildRows()
+        if movieListFilteredResults.count <= 0 {
+            noMoviesLabel.isHidden = false
+        } else {
+            noMoviesLabel.isHidden = true
+        }
+    }
+    
     private func nowPlayingMovie() {
         
         UIManager.showSpinner(onView: AppConstants.appDelegate.window?.rootViewController?.view ?? UIView())
-
-        let request = MovieListRequestModel()
-        movieListServiceViewModel.nowPlaying(request) { [weak self] (data, errorMessage, isSuccess)  in
+        movieListServiceViewModel.nowPlaying() { [weak self] (data, errorMessage, isSuccess)  in
             UIManager.removeSpinner()
             guard let self = self else {return}
             if isSuccess ?? false {
@@ -60,16 +68,6 @@ class MovieListViewController: UIViewController {
             } else {
                 UIManager.showAlert(msg: AppConstants.somethingWentWrong, completionBlock: nil)
             }
-        }
-    }
-    
-    private func reloadScreen() {
-        self.movieListDataSource.movieList = self.movieListFilteredResults
-        self.movieListDataSource.buildRows()
-        if movieListFilteredResults.count <= 0 {
-            noMoviesLabel.isHidden = false
-        } else {
-            noMoviesLabel.isHidden = true
         }
     }
 }
@@ -84,6 +82,9 @@ extension MovieListViewController: MovieListDelegate {
     func bookButtonAction(_ results: Results?) {
         if let results = results {
             print(results)
+            let movieDetailViewController = MovieDetailViewController(nibName: "MovieDetailViewController", bundle: nil)
+            movieDetailViewController.movieListResultsModel = results
+            self.navigationController?.pushViewController(movieDetailViewController, animated: true)
         }
     }
 }
@@ -108,37 +109,5 @@ extension MovieListViewController: UITextFieldDelegate {
             reloadScreen()
         }
         return true
-    }
-
-}
-
-extension StringProtocol where Index == String.Index {
-    func index(of string: Self, options: String.CompareOptions = []) -> Index? {
-        return range(of: string, options: options)?.lowerBound
-    }
-    func endIndex(of string: Self, options: String.CompareOptions = []) -> Index? {
-        return range(of: string, options: options)?.upperBound
-    }
-    func indexes(of string: Self, options: String.CompareOptions = []) -> [Index] {
-        var result: [Index] = []
-        var startIndex = self.startIndex
-        while startIndex < endIndex,
-            let range = self[startIndex...].range(of: string, options: options) {
-                result.append(range.lowerBound)
-                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
-                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
-        }
-        return result
-    }
-    func ranges(of string: Self, options: String.CompareOptions = []) -> [Range<Index>] {
-        var result: [Range<Index>] = []
-        var startIndex = self.startIndex
-        while startIndex < endIndex,
-            let range = self[startIndex...].range(of: string, options: options) {
-                result.append(range)
-                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
-                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
-        }
-        return result
     }
 }
